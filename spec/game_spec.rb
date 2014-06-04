@@ -17,4 +17,12 @@ describe Game do
 
     expect(game.score).to eql 20
   end
+  it "tests one spare game" do
+    game.roll(5)
+    game.roll(5)
+    game.roll(3)
+    roll_many(17, 0)
+
+    expect(game.score).to eql 16
+  end
 end
