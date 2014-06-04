@@ -7,4 +7,9 @@ describe Game do
 
     expect(game.score).to eql 0
   end
+  it "tests all ones game" do
+    20.times { game.roll(1) }
+
+    expect(game.score).to eql 20
+  end
 end
