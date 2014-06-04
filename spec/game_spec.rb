@@ -7,6 +7,10 @@ describe Game do
     n.times { game.roll(pins) }
   end
   
+  def roll_spare
+    2.times { game.roll(5) }
+  end
+
   it "tests gutter game" do
     roll_many(20, 0)  
 
@@ -17,8 +21,7 @@ describe Game do
     expect(game.score).to eql 20
   end
   it "tests one spare game" do
-    game.roll(5)
-    game.roll(5)
+    roll_spare
     game.roll(3)
     roll_many(17, 0)
     expect(game.score).to eql 16
