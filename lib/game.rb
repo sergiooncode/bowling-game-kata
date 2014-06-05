@@ -18,12 +18,17 @@ class Game
     score = 0
     frame_index = 0
     (0..9).each do |frame|
-      if spare?(frame_index)
-        score += 10 + @rolls[frame_index + 2]
-        frame_index += 2
+      if @rolls[frame_index] == 10
+        score += 10 + @rolls[frame_index + 1] + @rolls[frame_index + 2]
+        frame_index += 1
       else
-        score += @rolls[frame_index] + @rolls[frame_index + 1]
-        frame_index += 2
+        if spare?(frame_index)
+          score += 10 + @rolls[frame_index + 2]
+          frame_index += 2
+        else
+          score += @rolls[frame_index] + @rolls[frame_index + 1]
+          frame_index += 2
+        end
       end
     end
     score

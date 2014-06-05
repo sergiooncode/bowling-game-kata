@@ -18,12 +18,22 @@ describe Game do
   end
   it "tests all ones game" do
     roll_many(20, 1)
+    
     expect(game.score).to eql 20
   end
   it "tests one spare game" do
     roll_spare
     game.roll(3)
     roll_many(17, 0)
+    
     expect(game.score).to eql 16
+  end
+  it "tests one strike game" do
+    game.roll(10)
+    game.roll(3)
+    game.roll(4)
+    roll_many(16, 0)
+
+    expect(game.score).to eql 24
   end
 end
