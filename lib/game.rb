@@ -34,6 +34,10 @@ class Game
     score
   end
 
+  def strike?(frame_index)
+    @rolls[frame_index] == 10
+  end
+
   def sum_of_balls_in_frame(frame_index)
     @rolls[frame_index] + @rolls[frame_index + 1]
   end

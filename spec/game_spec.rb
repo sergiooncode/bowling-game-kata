@@ -11,6 +11,10 @@ describe Game do
     2.times { game.roll(5) }
   end
 
+  def roll_strike
+    game.roll(10)
+  end
+
   it "tests gutter game" do
     roll_many(20, 0)  
 
@@ -29,7 +33,7 @@ describe Game do
     expect(game.score).to eql 16
   end
   it "tests one strike game" do
-    game.roll(10)
+    roll_strike
     game.roll(3)
     game.roll(4)
     roll_many(16, 0)
