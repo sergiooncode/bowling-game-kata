@@ -15,19 +15,19 @@ describe Game do
     game.roll(10)
   end
 
-  it "tests gutter game" do
+  it "plays a gutter game" do
     roll_many(20, 0)  
 
     expect(game.score).to eql 0
   end
   
-  it "tests all ones game" do
+  it "plays an all ones game" do
     roll_many(20, 1)
     
     expect(game.score).to eql 20
   end
   
-  it "tests one spare game" do
+  it "plays one spare game" do
     roll_spare
     game.roll(3)
     roll_many(17, 0)
@@ -35,7 +35,7 @@ describe Game do
     expect(game.score).to eql 16
   end
   
-  it "tests one strike game" do
+  it "plays one strike game" do
     roll_strike
     game.roll(3)
     game.roll(4)
@@ -44,7 +44,7 @@ describe Game do
     expect(game.score).to eql 24
   end
   
-  it "tests a perfect game" do
+  it "plays a perfect game" do
     roll_many(12, 10)
 
     expect(game.score).to eql 300
